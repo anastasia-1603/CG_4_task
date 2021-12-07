@@ -5,48 +5,30 @@ package math;
  */
 public class Vector3
 {
-    private float x, y, z;
+    private float[] values;
 
     /**
      * Конструктор трехмерной точки
-     * @param x
-     * @param y
-     * @param z
+     * @param values
      */
-    public Vector3(float x, float y, float z)
+    public Vector3(float[] values)
     {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        this.values = values;
     }
 
     public float getX()
     {
-        return x;
-    }
-
-    public void setX(float x)
-    {
-        this.x = x;
+        return values[0];
     }
 
     public float getY()
     {
-        return y;
-    }
-
-    public void setY(float y)
-    {
-        this.y = y;
+        return values[1];
     }
 
     public float getZ()
     {
-        return z;
+        return values[2];
     }
 
-    public void setZ(float z)
-    {
-        this.z = z;
-    }
 }
