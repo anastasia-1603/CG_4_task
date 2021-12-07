@@ -8,12 +8,14 @@ public class Vector3
     private float[] values;
 
     /**
-     * Конструктор трехмерной точки
-     * @param values
+     * Конструктор трехмерной точки по трем составляющим
+     * @param x
+     * @param y
+     * @param z
      */
-    public Vector3(float[] values)
+    public Vector3(float x, float y, float z)
     {
-        this.values = values;
+        this.values = new float[] {x, y, z};
     }
 
     public float getX()
@@ -31,4 +33,8 @@ public class Vector3
         return values[2];
     }
 
+    public float at(int index)
+    {
+        return values[index];
+    }
 }
