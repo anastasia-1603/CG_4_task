@@ -1,13 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
-public class MainFrame extends JDialog
+public class MainWindow extends JDialog
 {
     private JPanel contentPane;
     private DrawPanel drawPanel;
 
-    public MainFrame()
+    public MainWindow()
     {
         contentPane = new JPanel();
         setContentPane(contentPane);
@@ -19,7 +18,7 @@ public class MainFrame extends JDialog
 
     public static void main(String[] args)
     {
-        MainFrame dialog = new MainFrame();
+        MainWindow dialog = new MainWindow();
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);
