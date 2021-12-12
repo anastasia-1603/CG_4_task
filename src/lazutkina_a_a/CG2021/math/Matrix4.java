@@ -1,4 +1,4 @@
-package math;
+package lazutkina_a_a.CG2021.math;
 
 public class Matrix4 {
     private float matrix[];

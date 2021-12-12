@@ -1,6 +1,6 @@
-package third;
+package lazutkina_a_a.CG2021.third;
 
-import math.Vector3;
+import lazutkina_a_a.CG2021.math.Vector3;
 
 import java.util.LinkedList;
 import java.util.List;

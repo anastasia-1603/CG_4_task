@@ -1,13 +1,24 @@
-package third;
+package lazutkina_a_a.CG2021.third;
 
-import draw.IDrawer;
-import math.Vector3;
+import lazutkina_a_a.CG2021.draw.IDrawer;
+import lazutkina_a_a.CG2021.math.Vector3;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Scene {
+
+    private Color color;
+
+    public Scene(Color color) {
+        this.color = color;
+    }
+
+    public Scene() {
+    }
+
     private List<IModel> models = new ArrayList<>();
 
     public List<IModel> getModels() {
@@ -29,7 +40,7 @@ public class Scene {
                 allLines.add(new PolyLine3D(newVectors));
             }
         }
-
+        d.clear(color);
         d.draw(allLines);
     }
 }

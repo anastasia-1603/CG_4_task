@@ -1,4 +1,4 @@
-package math;
+package lazutkina_a_a.CG2021.math;
 
 /**
  * Данный класс описывает точку в трехмерном пространстве

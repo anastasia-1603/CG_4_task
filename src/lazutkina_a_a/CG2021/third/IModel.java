@@ -1,4 +1,4 @@
-package third;
+package lazutkina_a_a.CG2021.third;
 
 import java.util.List;
 

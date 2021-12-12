@@ -1,13 +1,13 @@
+package lazutkina_a_a.CG2021;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class MainWindow extends JDialog
-{
+public class MainWindow extends JDialog {
     private JPanel contentPane;
     private DrawPanel drawPanel;
 
-    public MainWindow()
-    {
+    public MainWindow() {
         contentPane = new JPanel();
         setContentPane(contentPane);
         setModal(true);
@@ -16,12 +16,10 @@ public class MainWindow extends JDialog
         contentPane.add(drawPanel);
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         MainWindow dialog = new MainWindow();
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);
     }
-
 }
