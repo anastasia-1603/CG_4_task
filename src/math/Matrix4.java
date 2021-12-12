@@ -108,7 +108,7 @@ public class Matrix4 {
         return result;
     }
 
-    public Matrix4 add  (Matrix4 other)
+    public Matrix4 add(Matrix4 other)
     {
         Matrix4 result = Matrix4.zero();
         for (int i = 0; i < SIZE; i++)
