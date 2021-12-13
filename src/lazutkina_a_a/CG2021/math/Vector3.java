@@ -37,4 +37,16 @@ public class Vector3
     {
         return values[index];
     }
+
+    private static final float EPSILON = 1e-10f;
+    /**
+     * Метод, возвращающий длину вектора
+     * @return длина вектора
+     */
+    public float length() {
+        float lenSqr = values[0] * values[0] + values[1] * values[1] + values[2] * values[2];
+        if (lenSqr < EPSILON)
+            return 0;
+        return (float)Math.sqrt(lenSqr);
+    }
 }

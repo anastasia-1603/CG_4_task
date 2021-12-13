@@ -63,8 +63,6 @@ public class Matrix4 {
         return m;
     }
 
-
-
     public Matrix4 multiply(float number)
     {
         Matrix4 m = zero();

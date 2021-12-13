@@ -109,4 +109,14 @@ public class Vector4 {
     public float at(int index) {
         return values[index];
     }
+
+    /**
+     * Создаёт трёхмерный вектор, X, Y и Z составляющие которого равны
+     * соответствующим значениям нормализованного четырёхмерного вектора.
+     * @return новый трёхмерный вектор.
+     */
+    public Vector3 asVector3() {
+        Vector4 n = this.normalized();
+        return new Vector3(n.getX(), n.getY(), n.getZ());
+    }
 }
