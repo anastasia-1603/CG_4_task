@@ -8,6 +8,7 @@ import lazutkina_a_a.CG2021.models.Parallelepiped;
 import lazutkina_a_a.CG2021.screen.ScreenConverter;
 import lazutkina_a_a.CG2021.third.Camera;
 import lazutkina_a_a.CG2021.third.Scene;
+import lazutkina_a_a.CG2021.third.World;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,12 +20,14 @@ public class DrawPanel extends JPanel implements CameraController.RepaintListene
         private ScreenConverter sc;
         private Camera camera;
         private CameraController cameraController;
+        private World world;
 
         public DrawPanel() {
             super();
             sc = new ScreenConverter(-1, 1, 2, 2, 1, 1);
             camera = new Camera();
-            cameraController = new CameraController(camera, sc);
+            world = new World();
+            cameraController = new CameraController(camera, sc, world);
             scene = new Scene(Color.WHITE.getRGB());
             scene.showAxes();
 
@@ -32,6 +35,11 @@ public class DrawPanel extends JPanel implements CameraController.RepaintListene
                     new Vector3(-0.4f, -0.4f, -0.4f),
                     new Vector3(0.4f, 0.4f, 0.4f)
             ));
+
+            /*scene.getModelsList().add(new Parallelepiped(
+                    new Vector3(-0.8f, -0.8f, -0.8f),
+                    new Vector3(-0.5f, -0.5f, -0.5f)
+            ));*/
 
             cameraController.addRepaintListener(this);
             addMouseListener(cameraController);
@@ -45,7 +53,7 @@ public class DrawPanel extends JPanel implements CameraController.RepaintListene
             BufferedImage bi = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
             Graphics2D graphics = (Graphics2D)bi.getGraphics();
             IDrawer dr = new SimpleEdgeDrawer(sc, graphics);
-            scene.drawScene(dr, camera);
+            scene.drawScene(dr, camera, world);
             g.drawImage(bi, 0, 0, null);
             graphics.dispose();
         }

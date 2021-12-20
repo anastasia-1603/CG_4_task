@@ -6,6 +6,7 @@ import lazutkina_a_a.CG2021.math.Vector4;
 import lazutkina_a_a.CG2021.screen.ScreenConverter;
 import lazutkina_a_a.CG2021.screen.ScreenPoint;
 import lazutkina_a_a.CG2021.third.Camera;
+import lazutkina_a_a.CG2021.third.World;
 
 import javax.swing.*;
 import java.awt.*;
@@ -68,10 +69,12 @@ public class CameraController implements MouseListener, MouseMotionListener, Mou
 
     private Camera camera;
     private ScreenConverter sc;
+    private World world;
 
-    public CameraController(Camera camera, ScreenConverter sc) {
+    public CameraController(Camera camera, ScreenConverter sc, World world) {
         this.camera = camera;
         this.sc = sc;
+        this.world = world;
     }
 
     public Camera getCamera() {
@@ -199,7 +202,9 @@ public class CameraController implements MouseListener, MouseMotionListener, Mou
         /*Если зажат Control, то будем менять параметры перспективы, иначе - масштаба*/
         if (e.isControlDown()) {
             /*delta*5f - экспериментально подобранное число. Чем меньше, тем быстрее будет изменяться точка схода*/
-            camera.modifyProjection(Matrix4Factories.centralProjection(delta*5f, Matrix4Factories.Axis.Z));
+            //camera.modifyProjection(Matrix4Factories.centralProjection(delta*5f, Matrix4Factories.Axis.Z));
+            world.modifyProjection(Matrix4Factories.twoPointProjection(delta*10f, delta*10f,
+                    Matrix4Factories.Axis.X, Matrix4Factories.Axis.Y));
         } else {
             /*Вычислим коэффициент масштаба*/
             float factor = 1;

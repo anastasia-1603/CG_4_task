@@ -78,7 +78,7 @@ public class Scene {
         drawer.draw(lines);
     }
 
-    public void drawScene(IDrawer drawer, World world) {
+    public void drawScene(IDrawer drawer, ICamera cam, World world) {
         List<PolyLine3D> lines = new LinkedList<>();
         LinkedList<Collection<? extends IModel>> allModels = new LinkedList<>();
         allModels.add(models);
@@ -89,7 +89,7 @@ public class Scene {
                 for (PolyLine3D pl : m.getLines()) {
                     List<Vector3> points = new LinkedList<>();
                     for (Vector3 v : pl.getPoints()) {
-                        points.add(world.w2c(v));
+                        points.add(cam.w2c(world.objectToWorld(v)));
                     }
                     lines.add(new PolyLine3D(points, pl.isClosed()));
                 }
