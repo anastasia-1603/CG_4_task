@@ -57,27 +57,8 @@ public class Scene {
      * Рисуем сцену со всеми моделями
      * @param drawer то, с помощью чего будем рисовать
      * @param cam камера для преобразования координат
+     * @param world мир с двухточечной проекцией
      */
-    public void drawScene(IDrawer drawer, ICamera cam) {
-        List<PolyLine3D> lines = new LinkedList<>();
-        LinkedList<Collection<? extends IModel>> allModels = new LinkedList<>();
-        allModels.add(models);
-        if (isShowAxes())
-            allModels.add(axes);
-        for (Collection<? extends IModel> mc : allModels)
-            for (IModel m : mc) {
-                for (PolyLine3D pl : m.getLines()) {
-                    List<Vector3> points = new LinkedList<>();
-                    for (Vector3 v : pl.getPoints()) {
-                        points.add(cam.w2c(v));
-                    }
-                    lines.add(new PolyLine3D(points, pl.isClosed()));
-                }
-            }
-        drawer.clear(backgroundColor);
-        drawer.draw(lines);
-    }
-
     public void drawScene(IDrawer drawer, ICamera cam, World world) {
         List<PolyLine3D> lines = new LinkedList<>();
         LinkedList<Collection<? extends IModel>> allModels = new LinkedList<>();

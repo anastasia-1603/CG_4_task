@@ -3,6 +3,7 @@ package lazutkina_a_a.CG2021;
 import lazutkina_a_a.CG2021.draw.IDrawer;
 
 import lazutkina_a_a.CG2021.draw.SimpleEdgeDrawer;
+import lazutkina_a_a.CG2021.math.Matrix4Factories;
 import lazutkina_a_a.CG2021.math.Vector3;
 import lazutkina_a_a.CG2021.models.Parallelepiped;
 import lazutkina_a_a.CG2021.screen.ScreenConverter;
@@ -24,6 +25,7 @@ public class DrawPanel extends JPanel implements CameraController.RepaintListene
 
         public DrawPanel() {
             super();
+
             sc = new ScreenConverter(-1, 1, 2, 2, 1, 1);
             camera = new Camera();
             world = new World();
@@ -62,5 +64,13 @@ public class DrawPanel extends JPanel implements CameraController.RepaintListene
         public void shouldRepaint() {
             repaint();
         }
+
+
+    public void modifyProjection(float dx, float dy, float dz) {
+        world.modifyProjection(
+                Matrix4Factories.allProjection(dx, dy, dz,
+                        Matrix4Factories.Axis.X, Matrix4Factories.Axis.Y, Matrix4Factories.Axis.Z));
+        repaint();
+    }
 }
 

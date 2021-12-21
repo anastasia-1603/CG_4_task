@@ -20,7 +20,7 @@ public class CameraController implements MouseListener, MouseMotionListener, Mou
     /*=============== Начало паттерна "слушатель" ==================*/
     /* Реализация паттерна слушатель для оповещения всех желающих о каком-либо событии */
 
-    /* Для начала требуется объявить интерфейс, в котором будут указаны используемы для оповещения методы.
+    /* Для начала требуется объявить интерфейс, в котором будут указаны используемые для оповещения методы.
      * В данном случае будет объявлен один метод, который будет вызываться тогда,
      * когда изменится состояние камеры и надо перерисовать экран
      */
@@ -202,9 +202,8 @@ public class CameraController implements MouseListener, MouseMotionListener, Mou
         /*Если зажат Control, то будем менять параметры перспективы, иначе - масштаба*/
         if (e.isControlDown()) {
             /*delta*5f - экспериментально подобранное число. Чем меньше, тем быстрее будет изменяться точка схода*/
-            //camera.modifyProjection(Matrix4Factories.centralProjection(delta*5f, Matrix4Factories.Axis.Z));
-            world.modifyProjection(Matrix4Factories.twoPointProjection(delta*10f, delta*10f,
-                    Matrix4Factories.Axis.X, Matrix4Factories.Axis.Y));
+           /* world.modifyProjection(Matrix4Factories.twoPointProjection(delta*10f, delta*10f,
+                    Matrix4Factories.Axis.X, Matrix4Factories.Axis.Y));*/
         } else {
             /*Вычислим коэффициент масштаба*/
             float factor = 1;
